@@ -1,0 +1,126 @@
+#home-page {
+  height: 100vh;
+  width: 100vw;
+
+  display: flex;
+  justify-content: space-around;
+
+  .home-page-container {
+    flex: 1;
+  }
+
+  #home-page-left {
+    position: relative;
+
+    #home-page-left-img {
+      position: absolute;
+
+      top: 6vh;
+      left: 15%;
+
+      width: 70%;
+      height: 88vh;
+
+      border-radius: 20px;
+
+      background-size: cover;
+      background-position: right;
+      background-repeat: no-repeat;
+      background-image: url("../images/roshan.jpeg");
+    }
+
+    #home-page-left-shape {
+      top: 0;
+      left: 0;
+
+      position: absolute;
+
+      border-bottom: 100vh solid #FEB500;
+      border-left: 10vw solid #FEB500;
+      border-right: 15vw solid transparent;
+      height: 0;
+      width: 100px;
+    }
+  }
+
+  #home-page-right {
+    padding: 0 10vw;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: flex-start;
+
+    h3 {
+      font-size: 42px;
+      line-height: 52px;
+    }
+
+    h3:first-child {
+      color: #FEB500;
+    }
+
+    p {
+      margin-top: 20px;
+
+      font-size: 16px;
+      line-height: 35px;
+    }
+  }
+}
+
+@media only screen and (max-width: 512px) {
+  #home-page {
+    flex-direction: column;
+    justify-content: center;
+
+    .home-page-container {
+      flex: 0;
+    }
+
+    #home-page-left {
+      position: static;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      #home-page-left-shape {
+        display: none;
+      }
+
+      #home-page-left-img {
+        position: static;
+
+        margin: 0;
+
+        width: 250px;
+        height: 250px;
+
+        border-radius: 50%;
+        background-position: center;
+      }
+    }
+
+    #home-page-right {
+      margin-top: 80px;
+
+      justify-content: center;
+      align-items: center;
+
+      h3 {
+        text-align: center;
+        font-size: 26px;
+        line-height: 32px;
+      }
+
+      p {
+        text-align: center;
+
+        font-size: 16px;
+        line-height: 22px;
+      }
+    }
+  }
+}
