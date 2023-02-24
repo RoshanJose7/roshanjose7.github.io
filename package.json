@@ -11,6 +11,7 @@
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b gh-pages",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit"
@@ -18,7 +19,6 @@
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
     "gatsby": "^5.6.1",
-    "gatsby-plugin-google-gtag": "^5.6.0",
     "gatsby-plugin-image": "^3.6.0",
     "gatsby-plugin-manifest": "^5.6.0",
     "gatsby-plugin-mdx": "^5.6.0",
@@ -27,6 +27,7 @@
     "gatsby-plugin-sitemap": "^6.6.0",
     "gatsby-source-filesystem": "^5.6.0",
     "gatsby-transformer-sharp": "^5.6.0",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
