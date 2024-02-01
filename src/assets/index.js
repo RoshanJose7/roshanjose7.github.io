@@ -9,13 +9,10 @@ import close from "./close.svg";
 import website from "./website.png";
 
 // Tech Skills
-
 import docker from "./tech/docker.jpeg";
-import javascript from "./tech/javascript.jpeg";
 import mongodb from "./tech/mongodb.jpeg";
 import postgresql from "./tech/postgresql.jpeg";
 import nodejs from "./tech/nodejs.jpeg";
-import reactjs from "./tech/reactjs.jpeg";
 import typescript from "./tech/typescript.jpeg";
 import gatsby from "./tech/gatsby.jpeg";
 import nextjs from "./tech/nextjs.jpeg";
@@ -27,6 +24,7 @@ import aws from "./tech/aws.jpeg";
 import azure from "./tech/azure.jpeg";
 
 // Company
+import dealberg from "./company/dealberg.png";
 import ostello from "./company/ostello.png";
 import madempty from "./company/me.png";
 import gdsc from "./company/gdsc.png";
@@ -48,43 +46,42 @@ import linkedin from "./socials/linkedin.png";
 import leetcode from "./socials/leetcode.png";
 
 export {
-  logo,
-  backend,
-  creator,
-  mobile,
-  web,
-  website,
-  github,
-  menu,
-  close,
+    logo,
+    backend,
+    creator,
+    mobile,
+    web,
+    website,
+    github,
+    menu,
+    close,
     gatsby,
     nextjs,
     flutter,
     nestjs,
     aws,
     azure,
-  postgresql,
-  docker,
-  javascript,
-  mongodb,
-  nodejs,
+    postgresql,
+    docker,
+    mongodb,
+    nodejs,
     python,
     django,
-  reactjs,
-  typescript,
+    typescript,
     madempty,
     ostello,
-  gdsc,
+    dealberg,
+    gdsc,
     remindme,
-  streamit,
-  focusontrack,
+    streamit,
+    focusontrack,
     qrgenius,
-  mediabreeze,
-  bbkbangalore,
-  qleanbot,
-  pypasslock,
-  memorysnap,
-  overflowedge,
-  linkedin,
+    mediabreeze,
+    bbkbangalore,
+    qleanbot,
+    pypasslock,
+    memorysnap,
+    overflowedge,
+    linkedin,
     leetcode,
 };

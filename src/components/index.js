@@ -6,20 +6,20 @@ import Experience from "./Experience";
 import Works from "./Works";
 import Contact from "./Contact";
 import CanvasLoader from "./Loader";
-import { EarthCanvas, BallCanvas, ComputersCanvas, StarsCanvas } from './canvas';
+import {BallCanvas, ComputersCanvas, EarthCanvas, StarsCanvas} from './canvas';
 
 
 export {
-  Hero,
-  Navbar,
-  About,
-  Tech,
-  Experience,
-  Works,
-  Contact,
-  CanvasLoader,
-  EarthCanvas, 
-  BallCanvas, 
-  ComputersCanvas, 
-  StarsCanvas
+    Hero,
+    Navbar,
+    About,
+    Tech,
+    Experience,
+    Works,
+    Contact,
+    CanvasLoader,
+    EarthCanvas,
+    BallCanvas,
+    ComputersCanvas,
+    StarsCanvas
 };
