@@ -49,7 +49,7 @@ export const navLinks = [
 
 const services = [
     {
-        title: "Tech Lead",
+        title: "SDE - 1",
         icon: creator,
     },
     {
@@ -123,26 +123,18 @@ const technologies = [
 
 const experiences = [
     {
-        title: "Lead - Technology",
-        company_name: "Dealberg",
+        title: "SDE - 1",
+        company_name: "DealBerg Technologies Pvt Ltd",
         icon: dealberg,
         iconBg: "#f0f0f0",
-        date: "Aug 2023 - PRESENT",
+        date: "Aug 2023 - Jul 2025",
         points: [
-            "Currently leading the Technology & Design Team at Dealberg.",
-        ],
-    },
-    {
-        title: "Co-Founder & CTO",
-        company_name: "Ostello AI",
-        icon: ostello,
-        iconBg: "#f0f0f0",
-        date: "Jan 2023 - Jul 2023",
-        points: [
-            "Created and implemented new features that increased the number of users by over 200% while maintaining 100% uptime.",
-            "Developed a consistent end-to-end client experience and a 7% decrease in average cost per lead by leading cross-functional alignment and communication with Sales, Marketing, and SEO departments to establish business objectives and a company-wide KPI framework.",
-            "Managed technical budgets and resources to ensure effective use and optimisation of resources for a startup.",
-            "Increased development speed by 15% by setting up CI/CD pipelines with GitHub Actions.",
+            "Led the migration of customer portal from Flutter to GatsbyJS, cutting page load times, significantly improved SEO and reducing user drop off rate by 25% (monitored via PostHog).",
+            "Developed a high-impact interactive Unibic festive hampers landing page using React Framer Motion plugin and custom GSAP animations, boosting user engagement by 15% and driving a 30% increase in campaign traffic.",
+            "Architected and launched the first vendor portal, automating PO management, shipment creation, eliminating manual data entry which reduced human made errors by 70%.",
+            "Built and deployed a cross-platform Flutter admin mobile app (iOS & Android), adopted by 80% of the operations staff and streamlining field workflows and task efficiency.",
+            "Designed an admin analytics dashboard with margin analysis and downloadable revenue reports, providing real-time insights to identify unprofitable accounts and optimize team performance.",
+            "Launched a dedicated landing page for Quenox Nextgen Packaging, establishing a strong digital presence and driving awareness for the new subsidiary.",
         ],
     },
     {
@@ -150,11 +142,11 @@ const experiences = [
         company_name: "Ostello AI",
         icon: ostello,
         iconBg: "#f0f0f0",
-        date: "Jul 2022 - Jan 2023",
+        date: "Jul 2022 - Jul 2023",
         points: [
-            "Enhanced website performance and user experience by optimizing front-end and integrating third-party tools.",
-            "Improved technical skills of interns and new hires through training on best practices, coding standards, and development methodologies.",
-            "Supported team members and improved their performance by sharing expert knowledge and insights.",
+            "Spearheaded the creation and implementation of new features that boosted user growth by over 200% while maintaining 100% uptime, and drove a 7% reduction in cost per lead by aligning Sales, Marketing, and SEO around a unified KPI framework and end‑to‑end client experience.",
+            "Managed technical budgets and resources for a startup, optimizing spend and increasing development velocity by 15% through the rollout of CI/CD pipelines with GitHub Actions.",
+            "Enhanced website performance and user experience by optimizing the front‑end and integrating third‑party tools, and elevated team capabilities by mentoring interns and new hires on best practices, coding standards, and development methodologies.",
         ],
     },
     {
@@ -165,7 +157,7 @@ const experiences = [
         date: "Jan 2022 - Jul 2022",
         points: [
             "Collaborated with senior developers and technical team members to design and maintain backend components using JavaScript, actively contributing to code reviews, documentation, and software development best practices.",
-            "Received recognition and appreciation from the manager for high-quality work and dedication to improving technical skills and knowledge."
+            "Received recognition and appreciation from the manager for high-quality work and dedication to improving technical skills and knowledge.",
         ],
     },
     {

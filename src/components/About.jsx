@@ -47,11 +47,11 @@ const About = () => {
                 variants={fadeIn("", "", 0.1, 1)}
                 className='mt-4 text-secondary text-[17px] max-w-2xl leading-[30px]'
             >
-                I have over 2 years of experience in Software Development and leading Tech teams.
-                My expertise are in frameworks like React, Gatsby, NestJS, and Python.
-                I'm a quick learner and collaborate closely with clients to
-                create efficient, scalable, and user-friendly solutions that solve
-                real-world problems. Let's work together to bring your ideas to life!
+                Masters in Information Technology student at RMIT, Melbourne, VIC.
+                Results-driven SDE with 2 years of experience in IT.
+                I specialize in backend and cross-platform development with Flutter and have a strong foundation in data structures, algorithms, and software design.
+                I am committed to producing high-quality, user-friendly, scalable software.
+                I am looking to connect with professionals in the Tech Industry for potential collaborations.
             </motion.p>
 
             <div className='mt-20 flex flex-wrap gap-10'>
