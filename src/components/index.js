@@ -1,25 +1,23 @@
 import Hero from "./Hero";
 import Navbar from "./Navbar";
 import About from "./About";
-import Tech from "./Tech";
 import Experience from "./Experience";
-import Works from "./Works";
+import Projects from "./Projects";
+import Skills from "./Skills";
+import Education from "./Education";
+import Volunteer from "./Volunteer";
+import Publications from "./Publications";
 import Contact from "./Contact";
-import CanvasLoader from "./Loader";
-import {BallCanvas, ComputersCanvas, EarthCanvas, StarsCanvas} from './canvas';
-
 
 export {
     Hero,
     Navbar,
     About,
-    Tech,
     Experience,
-    Works,
+    Projects,
+    Skills,
+    Education,
+    Volunteer,
+    Publications,
     Contact,
-    CanvasLoader,
-    EarthCanvas,
-    BallCanvas,
-    ComputersCanvas,
-    StarsCanvas
 };

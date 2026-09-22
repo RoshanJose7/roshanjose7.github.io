@@ -1,512 +1,159 @@
-import {
-  aws,
-  azure,
-  backend,
-  bbkbangalore,
-  creator,
-  dealberg,
-  django,
-  docker,
-  flutter,
-  focusontrack,
-  gatsby,
-  gdsc,
-  madempty,
-  mediabreeze,
-  memorysnap,
-  mobile,
-  mongodb,
-  nestjs,
-  nextjs,
-  nodejs,
-  ostello,
-  overflowedge,
-  postgresql,
-  pypasslock,
-  python,
-  qleanbot,
-  qrgenius,
-  remindme,
-  streamit,
-  typescript,
-  web,
-} from "../assets";
+import {dealberg, github, linkedin, mediabreeze, ostello, streamit} from "../assets";
 
 export const navLinks = [
-    {
-        id: "about",
-        title: "About",
-    },
-    {
-        id: "work",
-        title: "Work",
-    },
-    {
-        id: "contact",
-        title: "Contact",
-    },
+    {id: "about", title: "About"},
+    {id: "experience", title: "Experience"},
+    {id: "projects", title: "Projects"},
+    {id: "skills", title: "Skills"},
+    {id: "education", title: "Education"},
+    {id: "volunteer", title: "Volunteer"},
+    {id: "publications", title: "Publications"},
+    {id: "contact", title: "Contact"},
 ];
 
-const services = [
-    {
-        title: "SDE - 1",
-        icon: creator,
-    },
-    {
-        title: "Flutter Developer",
-        icon: mobile,
-    },
-    {
-        title: "Backend Developer",
-        icon: backend,
-    },
-    {
-        title: "Frontend Developer",
-        icon: web,
-    },
-];
+export const hero = {
+    greeting: "Hi, I'm Roshan",
+    subheadline: "Software Engineer (2 YOE) building AI/LLM applications — MsIT @ RMIT",
+    primaryCta: {label: "View Work", href: "#projects"},
+    secondaryCta: {label: "Get in Touch", href: "#contact"},
+};
 
-const technologies = [
-    {
-        name: "Gatsby",
-        icon: gatsby,
-    },
-    {
-        name: "Next JS",
-        icon: nextjs,
-    },
-    {
-        name: "TypeScript",
-        icon: typescript,
-    },
-    {
-        name: "Python",
-        icon: python,
-    },
-    {
-        name: "Flutter",
-        icon: flutter,
-    },
-    {
-        name: "Node JS",
-        icon: nodejs,
-    },
-    {
-        name: "Nest JS",
-        icon: nestjs,
-    },
-    {
-        name: "Django",
-        icon: django,
-    },
-    {
-        name: "PostgreSQL",
-        icon: postgresql,
-    },
-    {
-        name: "MongoDB",
-        icon: mongodb,
-    },
-    {
-        name: "docker",
-        icon: docker,
-    },
-    {
-        name: "AWS",
-        icon: aws,
-    },
-    {
-        name: "Azure",
-        icon: azure,
-    },
-];
+export const about = {
+    paragraphs: [
+        "I'm a software engineer with 2 years of experience building full-stack and backend systems — most recently leading a migration that cut load times and dropped user churn by 25%, and shipping features that grew a user base past 200%.",
+        "Right now I'm finishing a Master's in IT at RMIT, and using my final-year project to go deeper into AI: I'm building an AI agents system for financial analysis (FastAPI + React), working through how multiple agents can actually coordinate on decision support rather than just chaining prompts.",
+        "Looking for Software Engineer and AI Engineer roles in Melbourne — always happy to connect.",
+    ],
+};
 
-const experiences = [
+export const experiences = [
     {
-        title: "SDE - 1",
-        company_name: "DealBerg Technologies Pvt Ltd",
+        title: "SDE-1",
+        company_name: "DealBerg Technologies",
         icon: dealberg,
         iconBg: "#f0f0f0",
         date: "Aug 2023 - Jul 2025",
         points: [
-            "Led the migration of customer portal from Flutter to GatsbyJS, cutting page load times, significantly improved SEO and reducing user drop off rate by 25% (monitored via PostHog).",
-            "Developed a high-impact interactive Unibic festive hampers landing page using React Framer Motion plugin and custom GSAP animations, boosting user engagement by 15% and driving a 30% increase in campaign traffic.",
-            "Architected and launched the first vendor portal, automating PO management, shipment creation, eliminating manual data entry which reduced human made errors by 70%.",
-            "Built and deployed a cross-platform Flutter admin mobile app (iOS & Android), adopted by 80% of the operations staff and streamlining field workflows and task efficiency.",
-            "Designed an admin analytics dashboard with margin analysis and downloadable revenue reports, providing real-time insights to identify unprofitable accounts and optimize team performance.",
-            "Launched a dedicated landing page for Quenox Nextgen Packaging, establishing a strong digital presence and driving awareness for the new subsidiary.",
+            "Led the migration of the customer portal from Flutter to GatsbyJS, cutting page load times and improving SEO, which reduced user drop-off by 25% (tracked via PostHog).",
+            "Architected and launched the company's first vendor portal, automating PO management and shipment creation, which eliminated manual data entry and cut human error by 70%.",
+            "Built and deployed a cross-platform Flutter admin app (iOS & Android), adopted by 80% of operations staff, streamlining field workflows.",
+            "Designed an admin analytics dashboard with margin analysis and downloadable revenue reports, giving real-time visibility into unprofitable accounts and team performance.",
         ],
     },
     {
         title: "Full Stack Developer",
-        company_name: "Ostello AI",
+        company_name: "Ostello",
         icon: ostello,
         iconBg: "#f0f0f0",
         date: "Jul 2022 - Jul 2023",
         points: [
-            "Spearheaded the creation and implementation of new features that boosted user growth by over 200% while maintaining 100% uptime, and drove a 7% reduction in cost per lead by aligning Sales, Marketing, and SEO around a unified KPI framework and end‑to‑end client experience.",
-            "Managed technical budgets and resources for a startup, optimizing spend and increasing development velocity by 15% through the rollout of CI/CD pipelines with GitHub Actions.",
-            "Enhanced website performance and user experience by optimizing the front‑end and integrating third‑party tools, and elevated team capabilities by mentoring interns and new hires on best practices, coding standards, and development methodologies.",
+            "Built new product features that grew the user base by over 200% while maintaining 100% uptime, and reduced cost per lead by 7% through closer alignment between Sales and Product.",
+            "Built an initial RAG-based chatbot (OpenAI API + LangChain) for the Ostello mobile app, enabling natural-language course/institute search; reduced counselling team support tickets by 25% among the ~10% of students who used it.",
         ],
     },
+];
+
+// Toggle to true once Financial-Advisor has a real repo/demo link to show.
+const SHOW_FINANCIAL_ADVISOR = false;
+
+const financialAdvisor = {
+    enabled: SHOW_FINANCIAL_ADVISOR,
+    name: "Financial-Advisor",
+    title: "Financial-Advisor — AI Agents for Financial Analysis",
+    description:
+        "AI agents system for financial analysis, built with FastAPI, React, and the Anthropic SDK directly (no LangChain/LangGraph) — multiple agents coordinating on decision support, deployed on Azure AI Foundry.",
+    tags: ["FastAPI", "React", "Anthropic SDK", "Azure AI Foundry"],
+    source_code_link: null,
+    project_link: null,
+    status: "In progress — not yet published (expected ~Nov 2026)",
+};
+
+const zenith = {
+    enabled: true,
+    name: "Zenith",
+    title: "Zenith — Private Fitness Tracker for Serious Athletes (Beta)",
+    description:
+        "Subscription fitness app (React, Supabase) combining workout and nutrition logging with a private weekly accountability mechanic for small groups. Currently in invite-only beta. Includes opt-in AI features (Groq) for progressive overload suggestions and auto-generated workout summaries, scoped to exercise data only with deterministic fallbacks.",
+    tags: ["React", "Supabase", "Groq"],
+    source_code_link: null, // closed-source, paid product
+    project_link: null, // fill in with landing page URL once public
+    demoNote: "Demo access available on request",
+};
+
+const streamItProject = {
+    enabled: true,
+    name: "StreamIt",
+    title: "StreamIt — Peer-to-Peer File Streaming App",
+    description:
+        "Real-time peer-to-peer file transfer app built with React, Socket.io, and Express. Users create a room, invite peers, and stream files directly between browsers without size limits or server-side storage. The underlying approach was published in IEEE Xplore (\"Peer-to-Peer File Streaming Using Web Sockets Protocol,\" May 2023).",
+    tags: ["React", "Socket.io", "Express"],
+    image: streamit,
+    source_code_link: "https://github.com/RoshanJose7/streamit-app",
+    project_link: "https://drive.google.com/file/d/16Uq2_A7GSlhI03B5DC8SGWen2aYWKj9k/view",
+};
+
+const mediaBreeze = {
+    enabled: true,
+    name: "MediaBreeze",
+    title: "MediaBreeze — Serverless Media Transcoder",
+    description:
+        "Serverless media transcoding function (AWS Lambda + Docker) that converts uploaded media to WebM/WebP for cross-browser compatibility. Invoked via API Gateway. Code only — no persistent hosting, runs on-demand via Lambda.",
+    tags: ["AWS Lambda", "Docker"],
+    image: mediabreeze,
+    source_code_link: "https://github.com/RoshanJose7/MediaBreeze",
+    project_link: null, // serverless function, not a hosted app, by design
+};
+
+// Financial-Advisor stays hidden (enabled: false) until a real link is added — see toggle above.
+export const projects = [financialAdvisor, zenith, streamItProject, mediaBreeze].filter(
+    (project) => project.enabled
+);
+
+export const skills = [
+    {category: "Languages", items: ["Python", "TypeScript", "JavaScript"]},
+    {category: "Backend", items: ["FastAPI", "NestJS"]},
+    {category: "Frontend", items: ["React", "Flutter"]},
+    {category: "AI / Cloud", items: ["Azure AI Foundry", "Anthropic API", "Groq"]},
+    {category: "Other", items: ["SQL", "Docker", "Git"]},
+];
+
+export const education = [
     {
-        title: "Backend Developer Intern",
-        company_name: "Ostello AI",
-        icon: ostello,
-        iconBg: "#f0f0f0",
-        date: "Jan 2022 - Jul 2022",
-        points: [
-            "Collaborated with senior developers and technical team members to design and maintain backend components using JavaScript, actively contributing to code reviews, documentation, and software development best practices.",
-            "Received recognition and appreciation from the manager for high-quality work and dedication to improving technical skills and knowledge.",
-        ],
+        school: "RMIT University",
+        degree: "Master's, Information Technology",
+        date: "Jul 2025 - Nov 2027",
+        detail: "Relevant coursework: Database Concepts, Data Structures, Advanced Algorithms, Artificial Intelligence.",
     },
     {
-        title: "Tech Lead",
-        company_name: "GDSC MVJCE",
-        icon: gdsc,
-        iconBg: "#f0f0f0",
+        school: "MVJ College of Engineering",
+        degree: "Bachelor of Engineering, Computer Science",
+        date: "2019 - 2023",
+        detail: "8.66/10 CGPA.",
+    },
+];
+
+export const volunteer = [
+    {
+        title: "Technical Lead (Founding Team)",
+        organization: "GDSC MVJCE",
         date: "Oct 2021 - Jul 2022",
-        points: [
-            "Led the Technical Team at Google Developer Student Club at MVJCE for the year 2022-23.",
-            "Facilitated the Android Development with Kotlin Campaign with 3 hand-on projects.",
-            "Led the Flutter Festival with over 100 happy participants.",
-            "Web Development Speaker at the Google Developers Web Campaign."
-        ],
-    },
-    {
-        title: "Full Stack Developer",
-        company_name: "Mad Empty",
-        icon: madempty,
-        iconBg: "#4a3856",
-        date: "May 2021 - Sept 2021",
-        points: [
-            "Primarily worked with developing 3D Animated Landing pages for clients using Open Source tools like ThreeJS and Blender.",
-            "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-            "Implementing responsive design and ensuring cross-browser compatibility.",
-            "Participating in code reviews and providing constructive feedback to other developers.",
-        ],
+        description:
+            "Founding member of GDSC at MVJ College of Engineering; led technical programming as Technical Head, running an Android/Kotlin development series, a Flutter festival, and speaking at a Google Developers web event.",
     },
 ];
 
-const projects = [
+export const publications = [
     {
-        name: "Remind ME",
-        description:
-            "Discover RemindMe: Your Study Companion! This mobile app keeps college students organized, never missing coursework or assignments. Simplify your academic life and stay ahead effortlessly. Get Remind Me now! 📚📅",
-        tags: [
-            {
-                name: "flutter",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "provider",
-                color: "green-text-gradient",
-            },
-            {
-                name: "StudyCompanion",
-                color: "pink-text-gradient",
-            },
-        ],
-        image: remindme,
-        source_code_link: "https://github.com/RoshanJose7/remind_me",
-        project_link: "https://drive.google.com/file/d/1xbUPdrDMnndBV06KD69WYtA90wz9iQND/view",
+        title: "Peer-to-Peer File Streaming Using Web Sockets Protocol",
+        venue: "IEEE Xplore",
+        date: "May 2023",
+        note: "See StreamIt project.",
+        link: "https://github.com/RoshanJose7/streamit-app",
     },
-    {
-        name: "StreamIt",
-        description:
-            "Introducing StreamIt: a Peer-to-Peer File streaming App! Say goodbye to file size limitations and tedious uploads. Create a room, invite your peers, upload any file, and let StreamIt handle the rest. Effortless, seamless, and hassle-free file sharing for everyone! 🚀📁",
-        tags: [
-            {
-                name: "react",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "socket.io",
-                color: "green-text-gradient",
-            },
-            {
-                name: "express",
-                color: "pink-text-gradient",
-            },
-        ],
-        image: streamit,
-        project_link: "https://drive.google.com/file/d/16Uq2_A7GSlhI03B5DC8SGWen2aYWKj9k/view",
-        source_code_link: "https://github.com/RoshanJose7/streamit-app",
-    },
-    {
-        source_code_link: "https://github.com/RoshanJose7/FocusOnTrack",
-        name: "FocusOnTrack - Online Class Attender",
-        tags: [
-            {
-                name: "webscraper",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "python",
-                color: "green-text-gradient",
-            },
-            {
-                name: "automation",
-                color: "pink-text-gradient",
-            },
-        ],
-        image: focusontrack,
-        project_link: "Unable to host Python Script!",
-        description:
-            "Presenting FocusOnTrack: Your Productivity Partner! This web scraper reads your Microsoft Teams Calendar, auto-joining and leaving classes. Focus on important tasks as FocusOnTrack manages class attendance. Maximize productivity with FocusOnTrack! 🤖🎓 #FocusOnTrack #ProductivityPartner #WebScraper",
-    },
-    {
-        source_code_link: "https://github.com/RoshanJose7/QRGenius/",
-        project_link: "https://qrcode-generator-red.vercel.app/",
-        image: qrgenius,
-        tags: [
-            {
-                name: "react",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "qr-code",
-                color: "green-text-gradient",
-            },
-        ],
-        name: "QRGenius - QR Code Generator",
-        description:
-            "Introducing QRGenius: a free, open-source QR Code Generator Web App built with React & TypeScript! Create QR Codes with ease from a range of modifiable options. Tailor it to your needs for ad campaigns or websites. Generate and download your QR Code as an image hassle-free. Unlock the power of QRGenius today! 🌐📲 #QRCodeGenerator #FreeAndOpenSource",
-    },
-    {
-        source_code_link: "https://github.com/RoshanJose7/BBK-Bangalore/tree/master",
-        name: "BBK Bangalore - Animated Landing Page",
-        tags: [
-            {
-                name: "react",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "framer-motion",
-                color: "pink-text-gradient",
-            },
-        ],
-        image: bbkbangalore,
-        project_link: "https://bbk-bangalore.vercel.app/",
-        description:
-            "Experience the dynamic spirit of \"Bangalore Budokan\" Karate Club through our captivating animated landing page. Crafted with React and powered by Framer Motion, this interactive masterpiece brings the essence of martial arts to life.",
-    },
-    {
-        source_code_link: "https://github.com/RoshanJose7/MediaBreeze/",
-        name: "MediaBreeze - Media Transcoder",
-        tags: [
-            {
-                name: "docker",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "python",
-                color: "green-text-gradient",
-            },
-            {
-                name: "lambda",
-                color: "orange-text-gradient",
-            },
-        ],
-        image: mediabreeze,
-        project_link: "Cannot redirect to Lambda Function!",
-        description:
-            "Introducing MediaBreeze: Your Serverless Media Transcoder! Convert any media to webm or webp formats for easy browser compatibility. Efficient, powerful, and perfect for AWS Lambda. Embrace seamless media conversion with MediaTranscode! 🎥🔀 #MediaBreeze #MediaTranscoder #AWSLambda #BrowserFriendly",
-    },
-    {
-        source_code_link: "https://github.com/RoshanJose7/chat_bot/",
-        name: "QleanBot - Deep Learning Chatbot",
-        image: qleanbot,
-        tags: [
-            {
-                name: "deep-learning",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "python",
-                color: "green-text-gradient",
-            },
-            {
-                name: "tensorflow",
-                color: "orange-text-gradient",
-            },
-        ],
-        project_link: "https://drive.google.com/file/d/1i7KH7m2jwYWNqirCBHiVLUmo8VXNQxqc/view?usp=sharing",
-        description:
-            "Meet our Deep Learning Chatbot: QleanBot! This intelligent bot excels at cleaning user questions using advanced processes like stemming. Trained from the intents JSON file, it's a breeze to add new data and train it for answering similar questions. Experience the power of seamless, accurate responses with our smart QleanBot! 🤖💬 #DeepLearning",
-    },
-    {
-        source_code_link: "https://github.com/RoshanJose7/PyPassLock/",
-        name: "PyPassLock - Password Manager",
-        image: pypasslock,
-        tags: [
-            {
-                name: "cli",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "python",
-                color: "green-text-gradient",
-            },
-            {
-                name: "encryption",
-                color: "pink-text-gradient",
-            },
-        ],
-        project_link: "https://drive.google.com/file/d/1EoFqZdOsRWI7pztVpxtYKAZOAHF-sMiH/view?usp=sharing",
-        description:
-            "Introducing PyPassLock: Your Secure Python Password Manager! Safeguarded by a master password, it utilizes the cryptography library for robust encryption. Manage your passwords with peace of mind using PyPassLock! 🔒🐍 #PasswordManager #SecureEncryption #PyPassLock",
-    },
-    {
-        source_code_link: "https://github.com/RoshanJose7/MemorySnap/",
-        name: "MemorySnap - Daily Moment Tracker",
-        image: memorysnap,
-        tags: [
-            {
-                name: "react",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "ionic",
-                color: "green-text-gradient",
-            },
-            {
-                name: "capacitor",
-                color: "pink-text-gradient",
-            }
-        ],
-        project_link: "https://memory-snap.vercel.app/",
-        description:
-            "Meet MemorySnap: Capture daily moments with ease! This Ionic React app lets you relive memories by storing photos in your gallery. Cherish joy, love, and laughter daily! 📸🎉",
-    },
-    {
-        source_code_link: "https://github.com/RoshanJose7/OverflowEdge/",
-        name: "OverflowEdge - StackOverflow Web Scraper",
-        image: overflowedge,
-        tags: [
-            {
-                name: "webscraper",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "python",
-                color: "green-text-gradient",
-            },
-            {
-                name: "automation",
-                color: "pink-text-gradient",
-            },
-        ],
-        project_link: "https://drive.google.com/file/d/1h-Pivht5-Fw2J_bcekxOBNMoRSAgx_vh/view?usp=sharing",
-        description:
-            "Introducing OverflowEdge: Your Dev's Edge! This TypeScript NodeJS web scraping script fetches the latest StackOverflow questions and exports them to CSV. Stay updated and seize the opportunity to be the first to answer. Empower your development journey with OverflowEdge! 🚀📈 #OverflowEdge #WebScraping #StayUpdated #DevEdge",
-    },
-    // {
-    //   source_code_link: "https://github.com/RoshanJose7/MemeItUp/",
-    //   name: "MemeItUp - Meme Generator",
-    //   tags: [
-    //     {
-    //       name: "kotlin",
-    //       color: "blue-text-gradient",
-    //     },
-    //     {
-    //       name: "native",
-    //       color: "green-text-gradient",
-    //     },
-    //   ],
-    //   image: null,
-    //   project_link: "Mobile App not uploaded to Play Store!",
-    //   description:
-    //       "Presenting MemeItUp: Your Kotlin Meme Generator App! Capture a picture, add hilarious text, and create your own memes on the fly. Unleash your creativity and share the laughter with MemeItUp! 📸🖌️ #MemeGenerator #KotlinApp #CreativityUnleashed",
-    // },
-    // {
-    //   source_code_link: "https://github.com/RoshanJose7/VoiceCommander/",
-    //   name: "VoiceCommander - Virtual Assistant",
-    //   image: null,
-    //   tags: [
-    //     {
-    //       name: "assistant",
-    //       color: "blue-text-gradient",
-    //     },
-    //     {
-    //       name: "python",
-    //       color: "green-text-gradient",
-    //     },
-    //     {
-    //       name: "automation",
-    //       color: "pink-text-gradient",
-    //     },
-    //   ],
-    //   project_link: "Unable to host Python Script!",
-    //   description:
-    //       "Meet VoiceCommander: Your Python Text-Based Virtual Assistant! Inspired by Iron Man, it opens applications and plays music/videos from YouTube with simple voice commands using Speech to Text. Experience the futuristic AI of JarvisAI today! 🤖🎵🎬 #VirtualAssistant #PythonAI #JarvisAI",
-    // },
-    // {
-    //   source_code_link: "https://github.com/RoshanJose7/PriceWatchdog/",
-    //   name: "PriceWatchdog - Price Tracker",
-    //   tags: [
-    //     {
-    //       name: "react",
-    //       color: "blue-text-gradient",
-    //     },
-    //     {
-    //       name: "mongodb",
-    //       color: "green-text-gradient",
-    //     },
-    //     {
-    //       name: "cron jobs",
-    //       color: "pink-text-gradient",
-    //     },
-    //   ],
-    //   image: null,
-    //   project_link: "No free server to host API server!",
-    //   description:
-    //       "Introducing PriceWatchdog: Your MERN Stack Price Tracker! Set price drop limits and product links, and let the server monitor prices. Receive email notifications when prices drop. Never miss a deal with PriceTrackr! 💰📈 #PriceTracker #MERNStack #DealNotifier",
-    // },
-    // {
-    //   source_code_link: "https://github.com/RoshanJose7/TagTrackr/",
-    //   name: "TagTrackr - RFID Scanner",
-    //   image: null,
-    //   tags: [
-    //     {
-    //       name: "flutter",
-    //       color: "blue-text-gradient",
-    //     },
-    //     {
-    //       name: "iot",
-    //       color: "green-text-gradient",
-    //     },
-    //     {
-    //       name: "firebase",
-    //       color: "pink-text-gradient",
-    //     },
-    //   ],
-    //   project_link: "Mobile App not uploaded to Play Store!",
-    //   description:
-    //       "Introducing TagTrackr: The Ultimate RFID Mobile App! Easily scan RFID tags using your device's NFC Reader or connect to an RFID Reader via USB. Effortlessly manage inventory with this powerful app. Streamline your processes with TagTrackr today! 📱🔍 #TagTrackr #RFIDMobileApp #InventoryManagement #Efficiency",
-    // },
-    // {
-    //   source_code_link: "https://github.com/RoshanJose7/TaskMaster/",
-    //   name: "TaskMaster - Project Management System",
-    //   image: null,
-    //   tags: [
-    //     {
-    //       name: "django",
-    //       color: "blue-text-gradient",
-    //     },
-    //     {
-    //       name: "python",
-    //       color: "green-text-gradient",
-    //     },
-    //     {
-    //       name: "rest api",
-    //       color: "pink-text-gradient",
-    //     },
-    //   ],
-    //   project_link: "No free server to host API server!",
-    //   description:
-    //       "Introducing TaskMaster: Your Complete Project Management Companion! Effortlessly track projects, todos, and deadlines in one place. Stay ahead with timely reminders and streamline your workflow. Conquer tasks with TaskMaster! 🚀📅 #TaskMaster #ProjectManagement #DeadlineTracker",
-    // },
 ];
 
-export {services, technologies, experiences, projects};
+export const contact = {
+    email: "sroshanjose7@gmail.com",
+    linkedin: {label: "linkedin.com/in/sroshanjose", href: "https://www.linkedin.com/in/sroshanjose/", icon: linkedin},
+    github: {label: "github.com/RoshanJose7", href: "https://github.com/RoshanJose7/", icon: github},
+};

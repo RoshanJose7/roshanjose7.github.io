@@ -1,12 +1,11 @@
-import React, {useRef, useState} from "react";
+import {useRef, useState} from "react";
 import {motion} from "framer-motion";
 import EmailJS from "@emailjs/browser";
 
 import {styles} from "../styles";
-import {EarthCanvas} from "./canvas";
 import {SectionWrapper} from "../hoc";
-import {slideIn} from "../utils/motion";
-import {github, leetcode, linkedin} from "../assets/index.js";
+import {fadeIn} from "../utils/motion";
+import {contact} from "../constants";
 
 const Contact = () => {
     const formRef = useRef();
@@ -40,7 +39,7 @@ const Contact = () => {
                     from_name: form.name,
                     to_name: "Roshan Jose",
                     from_email: form.email,
-                    to_email: "sroshanjose7@gmail.com",
+                    to_email: contact.email,
                     message: form.message,
                 },
                 import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
@@ -66,113 +65,86 @@ const Contact = () => {
     };
 
     return (
-        <div
-            className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
+        <motion.div
+            variants={fadeIn("up", "tween", 0.2, 1)}
+            className='w-full max-w-3xl mx-auto bg-black-100 p-8 rounded-2xl'
         >
-            <motion.div
-                variants={slideIn("left", "tween", 0.2, 1)}
-                className='w-full flex-[0.75] bg-black-100 p-8 rounded-2xl'
-            >
-                <p className={styles.sectionSubText}>Get in touch</p>
-                <h3 className={styles.sectionHeadText}>Contact.</h3>
+            <p className={styles.sectionSubText}>Get in touch</p>
+            <h3 className={styles.sectionHeadText}>Contact.</h3>
 
-                <div className="flex">
-                    <div className='flex justify-end m-3 card-img_hover'>
-                        <div
-                            onClick={() => window.open("https://github.com/RoshanJose7/", "_blank")}
-                            className='bg-gradient-to-r from-gray-700 via-gray-900 to-black w-10 h-10 p-1 rounded-full flex justify-center items-center cursor-pointer'
-                        >
-                            <img
-                                src={github}
-                                alt='source code'
-                                className='object-contain'
-                            />
-                        </div>
-                    </div>
-
-                    <div className='flex justify-end m-3 card-img_hover'>
-                        <div
-                            onClick={() => window.open("https://www.linkedin.com/in/sroshanjose/", "_blank")}
-                            className='bg-gradient-to-r from-blue-800 via-blue-500 to-slate-100 w-10 h-10 p-1 rounded-full flex justify-center items-center cursor-pointer'
-                        >
-                            <img
-                                src={linkedin}
-                                alt='source code'
-                                className='object-contain'
-                            />
-                        </div>
-                    </div>
-
-                    <div className='flex justify-end m-3 card-img_hover'>
-                        <div
-                            onClick={() => window.open("https://leetcode.com/roshanstark007/", "_blank")}
-                            className='bg-gradient-to-r from-amber-500 via-yellow-400 to-slate-300 w-10 h-10 p-1 rounded-full flex justify-center items-center cursor-pointer'
-                        >
-                            <img
-                                src={leetcode}
-                                alt='source code'
-                                className='object-contain'
-                            />
-                        </div>
-                    </div>
-                </div>
-
-                <form
-                    ref={formRef}
-                    onSubmit={handleSubmit}
-                    className='mt-12 flex flex-col gap-8'
+            <div className='flex gap-4 mt-6'>
+                <a
+                    href={contact.github.href}
+                    target='_blank'
+                    rel='noreferrer'
+                    className='flex items-center gap-2 bg-black-200 px-4 py-2 rounded-full text-secondary hover:text-white transition-colors'
                 >
-                    <label className='flex flex-col'>
-                        <span className='text-white font-medium mb-4'>Your Name</span>
-                        <input
-                            type='text'
-                            name='name'
-                            value={form.name}
-                            onChange={handleChange}
-                            placeholder="What's your good name?"
-                            className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
-                        />
-                    </label>
-                    <label className='flex flex-col'>
-                        <span className='text-white font-medium mb-4'>Your email</span>
-                        <input
-                            type='email'
-                            name='email'
-                            value={form.email}
-                            onChange={handleChange}
-                            placeholder="What's your web address?"
-                            className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
-                        />
-                    </label>
+                    <img src={contact.github.icon} alt='GitHub' className='w-5 h-5 object-contain'/>
+                    GitHub
+                </a>
+                <a
+                    href={contact.linkedin.href}
+                    target='_blank'
+                    rel='noreferrer'
+                    className='flex items-center gap-2 bg-black-200 px-4 py-2 rounded-full text-secondary hover:text-white transition-colors'
+                >
+                    <img src={contact.linkedin.icon} alt='LinkedIn' className='w-5 h-5 object-contain'/>
+                    LinkedIn
+                </a>
+            </div>
 
-                    <label className='flex flex-col'>
-                        <span className='text-white font-medium mb-4'>Your Message</span>
-                        <textarea
-                            rows={7}
-                            name='message'
-                            value={form.message}
-                            onChange={handleChange}
-                            placeholder='What you want to say?'
-                            className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
-                        />
-                    </label>
+            <p className='mt-4 text-secondary text-[14px]'>
+                Email: <a href={`mailto:${contact.email}`} className='text-white hover:underline'>{contact.email}</a>
+            </p>
 
-                    <button
-                        type='submit'
-                        className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
-                    >
-                        {loading ? "Sending..." : "Send"}
-                    </button>
-                </form>
-            </motion.div>
-
-            <motion.div
-                variants={slideIn("right", "tween", 0.2, 1)}
-                className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
+            <form
+                ref={formRef}
+                onSubmit={handleSubmit}
+                className='mt-8 flex flex-col gap-8'
             >
-                <EarthCanvas/>
-            </motion.div>
-        </div>
+                <label className='flex flex-col'>
+                    <span className='text-white font-medium mb-4'>Your Name</span>
+                    <input
+                        type='text'
+                        name='name'
+                        value={form.name}
+                        onChange={handleChange}
+                        placeholder="What's your good name?"
+                        className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+                    />
+                </label>
+                <label className='flex flex-col'>
+                    <span className='text-white font-medium mb-4'>Your email</span>
+                    <input
+                        type='email'
+                        name='email'
+                        value={form.email}
+                        onChange={handleChange}
+                        placeholder="What's your web address?"
+                        className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+                    />
+                </label>
+
+                <label className='flex flex-col'>
+                    <span className='text-white font-medium mb-4'>Your Message</span>
+                    <textarea
+                        rows={7}
+                        name='message'
+                        value={form.message}
+                        onChange={handleChange}
+                        placeholder='What you want to say?'
+                        className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+                    />
+                </label>
+
+                <button
+                    type='submit'
+                    className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
+                >
+                    {loading ? "Sending..." : "Send"}
+                </button>
+            </form>
+        </motion.div>
     );
 };
 

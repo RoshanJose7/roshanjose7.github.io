@@ -1,62 +1,27 @@
-import React from "react";
-import Tilt from "react-tilt";
 import {motion} from "framer-motion";
 
 import {styles} from "../styles";
-import {services} from "../constants";
+import {about} from "../constants";
 import {SectionWrapper} from "../hoc";
 import {fadeIn, textVariant} from "../utils/motion";
-
-const ServiceCard = ({index, title, icon}) => (
-    <Tilt className='xs:w-[250px] w-full'>
-        <motion.div
-            variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-            className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
-        >
-            <div
-                options={{
-                    max: 45,
-                    scale: 1,
-                    speed: 450,
-                }}
-                className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
-            >
-                <img
-                    src={icon}
-                    alt='web-development'
-                    className='w-16 h-16 object-contain'
-                />
-
-                <h3 className='text-white text-[20px] font-bold text-center'>
-                    {title}
-                </h3>
-            </div>
-        </motion.div>
-    </Tilt>
-);
 
 const About = () => {
     return (
         <>
             <motion.div variants={textVariant()}>
                 <p className={styles.sectionSubText}>Introduction</p>
-                <h2 className={styles.sectionHeadText}>Overview.</h2>
+                <h2 className={styles.sectionHeadText}>About.</h2>
             </motion.div>
 
-            <motion.p
-                variants={fadeIn("", "", 0.1, 1)}
-                className='mt-4 text-secondary text-[17px] max-w-2xl leading-[30px]'
-            >
-                Masters in Information Technology student at RMIT, Melbourne, VIC.
-                Results-driven SDE with 2 years of experience in IT.
-                I specialize in backend and cross-platform development with Flutter and have a strong foundation in data structures, algorithms, and software design.
-                I am committed to producing high-quality, user-friendly, scalable software.
-                I am looking to connect with professionals in the Tech Industry for potential collaborations.
-            </motion.p>
-
-            <div className='mt-20 flex flex-wrap gap-10'>
-                {services.map((service, index) => (
-                    <ServiceCard key={service.title} index={index} {...service} />
+            <div className='mt-4 flex flex-col gap-4 max-w-3xl'>
+                {about.paragraphs.map((paragraph, index) => (
+                    <motion.p
+                        key={`about-paragraph-${index}`}
+                        variants={fadeIn("", "", 0.1 * (index + 1), 1)}
+                        className='text-secondary text-[17px] leading-[30px]'
+                    >
+                        {paragraph}
+                    </motion.p>
                 ))}
             </div>
         </>

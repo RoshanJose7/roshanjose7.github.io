@@ -1,33 +1,46 @@
 import {motion} from "framer-motion";
 
 import {styles} from "../styles";
-import {ComputersCanvas} from "./canvas";
+import {hero} from "../constants";
+import {fadeIn} from "../utils/motion";
 
 const Hero = () => {
     return (
-        <section className={`relative w-full h-screen mx-auto`}>
+        <section className='relative w-full min-h-screen mx-auto flex items-center pt-[100px]'>
             <div
-                className={`absolute inset-0 top-[120px]  max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
+                className={`w-full max-w-7xl mx-auto ${styles.paddingX} flex flex-row items-start gap-5`}
             >
                 <div className='flex flex-col justify-center items-center mt-5'>
                     <div className='w-5 h-5 rounded-full bg-[#915EFF]'/>
                     <div className='w-1 sm:h-80 h-40 violet-gradient'/>
                 </div>
 
-                <div>
+                <motion.div variants={fadeIn("down", "tween", 0.1, 1)} initial='hidden' animate='show'>
                     <h1 className={`${styles.heroHeadText} text-white`}>
                         Hi, I'm <span className='text-[#915EFF]'>Roshan</span>
                     </h1>
-                    <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-                        I build beautiful 3D websites, <br className='sm:block hidden'/>
-                        web apps and mobile applications
+                    <p className={`${styles.heroSubText} mt-2 text-white-100 max-w-xl`}>
+                        Software Engineer (2 YOE) building AI/LLM applications — MsIT @ RMIT
                     </p>
-                </div>
+
+                    <div className='mt-8 flex flex-wrap gap-4'>
+                        <a
+                            href={hero.primaryCta.href}
+                            className='violet-gradient px-8 py-3 rounded-xl text-white font-bold shadow-card hover:opacity-90 transition-opacity'
+                        >
+                            {hero.primaryCta.label}
+                        </a>
+                        <a
+                            href={hero.secondaryCta.href}
+                            className='border border-secondary px-8 py-3 rounded-xl text-white font-bold hover:border-white transition-colors'
+                        >
+                            {hero.secondaryCta.label}
+                        </a>
+                    </div>
+                </motion.div>
             </div>
 
-            <ComputersCanvas/>
-
-            <div className='absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center'>
+            <div className='absolute xs:bottom-10 bottom-16 w-full flex justify-center items-center'>
                 <a href='#about'>
                     <div
                         className='w-[35px] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2'>
