@@ -1,13 +1,21 @@
+import {motion} from "framer-motion";
+
 import {projects, projectsInProgress} from "../constants";
 import {AvailabilityIcon, IeeeStamp} from "./blueprint/Icons";
 import {projectFigures} from "./blueprint/Diagrams";
 import {SheetEyebrow} from "./blueprint/Primitives";
 import Sheet from "./blueprint/Sheet";
+import {fadeUp, revealViewport, staggerContainer} from "../utils/motion";
 
 const ProjectCard = ({project, figureNumber}) => {
     const Figure = projectFigures[project.figure];
     return (
-        <article className="border-b-[3px] border-r-[3px] border-ink flex flex-col bg-panel">
+        <motion.article
+            variants={fadeUp()}
+            whileHover={{y: -4}}
+            transition={{duration: 0.2}}
+            className="border-b-[3px] border-r-[3px] border-ink flex flex-col bg-panel"
+        >
             <div className="fine h-[150px] box-border p-3 border-b-[3px] border-ink relative">
                 <div className="upper absolute top-2 left-2.5 text-[10px] font-bold">
                     Fig. {figureNumber}
@@ -62,7 +70,7 @@ const ProjectCard = ({project, figureNumber}) => {
                     )}
                 </div>
             </div>
-        </article>
+        </motion.article>
     );
 };
 
@@ -70,11 +78,17 @@ const Projects = () => (
     <Sheet id="projects">
         <SheetEyebrow sheet="04" name="Projects" withRule meta={`0${projects.length} live · 0${projectsInProgress.length} in progress`} />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t-[3px] border-l-[3px] border-ink">
+        <motion.div
+            variants={staggerContainer(0.08)}
+            initial="hidden"
+            whileInView="show"
+            viewport={revealViewport}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t-[3px] border-l-[3px] border-ink"
+        >
             {projects.map((project, index) => (
                 <ProjectCard key={project.name} project={project} figureNumber={`04.${index + 1}`} />
             ))}
-        </div>
+        </motion.div>
 
         {projectsInProgress.length > 0 && (
             <div className="mt-8">

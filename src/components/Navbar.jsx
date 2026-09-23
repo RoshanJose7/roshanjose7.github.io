@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {motion} from "framer-motion";
 
 import {navLinks} from "../constants";
 import {CloseIcon, CrosshairMark, HamburgerIcon} from "./blueprint/Icons";
@@ -17,7 +18,12 @@ const Navbar = () => {
     }, [toggle]);
 
     return (
-        <nav className="sticky top-0 z-20 h-16 xl:h-[92px] flex-shrink-0 box-border px-3 xl:pl-10 xl:pr-6 2xl:pl-[100px] 2xl:pr-[60px] flex items-center justify-between border-b-[3px] border-ink bg-panel">
+        <motion.nav
+            initial={{opacity: 0, y: -16}}
+            animate={{opacity: 1, y: 0}}
+            transition={{duration: 0.5, ease: [0.22, 1, 0.36, 1]}}
+            className="sticky top-0 z-20 h-16 xl:h-[92px] flex-shrink-0 box-border px-3 xl:pl-10 xl:pr-6 2xl:pl-[100px] 2xl:pr-[60px] flex items-center justify-between border-b-[3px] border-ink bg-panel"
+        >
             <a
                 href="#"
                 className="flex items-center gap-2.5 xl:gap-3 text-ink flex-shrink-0"
@@ -37,12 +43,14 @@ const Navbar = () => {
                 <ul className="list-none flex flex-row gap-2.5 2xl:gap-7">
                     {navLinks.map((nav) => (
                         <li key={nav.id}>
-                            <a
+                            <motion.a
                                 href={`#${nav.id}`}
-                                className="upper text-[10.5px] 2xl:text-[13px] font-bold text-ink hover:text-accent transition-colors whitespace-nowrap"
+                                whileHover={{y: -2}}
+                                transition={{duration: 0.15}}
+                                className="upper text-[10.5px] 2xl:text-[13px] font-bold text-ink hover:text-accent transition-colors whitespace-nowrap inline-block"
                             >
                                 {nav.title}
-                            </a>
+                            </motion.a>
                         </li>
                     ))}
                 </ul>
@@ -80,7 +88,7 @@ const Navbar = () => {
                     </ul>
                 </div>
             )}
-        </nav>
+        </motion.nav>
     );
 };
 

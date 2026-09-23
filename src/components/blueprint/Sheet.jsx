@@ -1,3 +1,7 @@
+import {motion} from "framer-motion";
+
+import {fadeUp, revealViewport} from "../../utils/motion";
+
 // Sheet — the per-section wrapper for the Structural/Blueprint design.
 // Replaces the old SectionWrapper HOC: every section is a numbered "sheet"
 // with a bottom rule, responsive padding, and an anchor id for the nav.
@@ -11,6 +15,9 @@
 // Either way the outer <section> owns the centering flex so each section's
 // own internal layout (passed via `className`, e.g. About's two-column
 // row) stays on an inner wrapper and never fights the centering direction.
+//
+// The inner wrapper fades + slides up once as it scrolls into view — this
+// alone gives every sheet a scroll-reveal without each component opting in.
 const Sheet = ({id, className = "", noBorder = false, fullHeight = false, grow = false, children}) => (
     <section
         id={id}
@@ -20,7 +27,15 @@ const Sheet = ({id, className = "", noBorder = false, fullHeight = false, grow =
             grow ? "lg:flex-1 lg:flex lg:flex-col lg:justify-center lg:min-h-0" : ""
         }`}
     >
-        <div className={className}>{children}</div>
+        <motion.div
+            className={className}
+            variants={fadeUp()}
+            initial="hidden"
+            whileInView="show"
+            viewport={revealViewport}
+        >
+            {children}
+        </motion.div>
     </section>
 );
 

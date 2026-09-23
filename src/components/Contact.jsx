@@ -1,5 +1,6 @@
 import {useRef, useState} from "react";
 import EmailJS from "@emailjs/browser";
+import {motion} from "framer-motion";
 
 import {contact, SHEET_TOTAL} from "../constants";
 import {ArrowRight, CornerMark, GitHubIcon, LinkedInIcon, MailIcon} from "./blueprint/Icons";
@@ -7,10 +8,12 @@ import {RegistrationCorners, SheetEyebrow} from "./blueprint/Primitives";
 import Sheet from "./blueprint/Sheet";
 
 const ChannelRow = ({href, external, Icon, label, value, last}) => (
-    <a
+    <motion.a
         href={href}
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}
+        whileHover={{x: 4}}
+        transition={{duration: 0.15}}
         className={`flex items-center gap-4 sm:gap-5 px-4 sm:px-[22px] py-4 sm:py-[18px] text-ink ${
             last ? "" : "border-b border-ink"
         }`}
@@ -23,7 +26,7 @@ const ChannelRow = ({href, external, Icon, label, value, last}) => (
             {value}
         </span>
         <ArrowRight size={18} stroke="#1B4DFF" />
-    </a>
+    </motion.a>
 );
 
 const Contact = () => {
@@ -151,14 +154,17 @@ const Contact = () => {
                                 className="h-[140px] box-border border-2 border-ink px-3.5 py-3 text-[16px] bg-panel text-ink resize-y"
                             />
                         </label>
-                        <button
+                        <motion.button
                             type="submit"
                             disabled={loading}
+                            whileHover={{y: -2}}
+                            whileTap={{scale: 0.98}}
+                            transition={{duration: 0.15}}
                             className="upper flex items-center justify-between h-14 px-5 bg-ink text-canvas text-[14px] font-bold tracking-[0.08em] disabled:opacity-60"
                         >
                             {loading ? "Sending..." : "Send message"}
                             <ArrowRight />
-                        </button>
+                        </motion.button>
                     </div>
                 </form>
             </div>

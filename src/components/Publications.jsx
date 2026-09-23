@@ -1,10 +1,13 @@
+import {motion} from "framer-motion";
+
 import {publications} from "../constants";
 import {IeeeStamp} from "./blueprint/Icons";
 import {SheetEyebrow} from "./blueprint/Primitives";
 import Sheet from "./blueprint/Sheet";
+import {fadeUp, revealViewport, staggerContainer} from "../utils/motion";
 
 const PublicationRow = ({entry, index}) => (
-    <div className={`flex flex-col sm:flex-row sm:items-center gap-4 py-5 ${
+    <motion.div variants={fadeUp()} className={`flex flex-col sm:flex-row sm:items-center gap-4 py-5 ${
         index === publications.length - 1 ? "" : "border-b border-ink"
     }`}>
         <IeeeStamp size={56} className="text-accent flex-shrink-0" />
@@ -25,18 +28,24 @@ const PublicationRow = ({entry, index}) => (
                 [ Source ]
             </a>
         )}
-    </div>
+    </motion.div>
 );
 
 const Publications = () => (
     <Sheet id="publications">
         <SheetEyebrow sheet="08" name="Publications" withRule meta={`0${publications.length} paper`} />
 
-        <div className="border-[3px] border-ink bg-panel px-5 sm:px-[26px]">
+        <motion.div
+            variants={staggerContainer(0.1)}
+            initial="hidden"
+            whileInView="show"
+            viewport={revealViewport}
+            className="border-[3px] border-ink bg-panel px-5 sm:px-[26px]"
+        >
             {publications.map((entry, index) => (
                 <PublicationRow key={entry.title} entry={entry} index={index} />
             ))}
-        </div>
+        </motion.div>
     </Sheet>
 );
 

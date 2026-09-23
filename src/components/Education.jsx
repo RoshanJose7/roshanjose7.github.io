@@ -1,9 +1,12 @@
+import {motion} from "framer-motion";
+
 import {education} from "../constants";
 import {SheetEyebrow} from "./blueprint/Primitives";
 import Sheet from "./blueprint/Sheet";
+import {fadeUp, revealViewport, staggerContainer} from "../utils/motion";
 
 const EducationRow = ({entry, index}) => (
-    <div className={`flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-6 py-5 ${
+    <motion.div variants={fadeUp()} className={`flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-6 py-5 ${
         index === education.length - 1 ? "" : "border-b border-ink"
     }`}>
         <div className="text-[15px] sm:text-[16px] font-black text-accent flex-shrink-0 sm:w-8">
@@ -17,18 +20,24 @@ const EducationRow = ({entry, index}) => (
             <div className="text-[15px] sm:text-[16px] font-semibold mt-1">{entry.degree}</div>
             <div className="text-[14px] leading-[1.5] mt-2">{entry.detail}</div>
         </div>
-    </div>
+    </motion.div>
 );
 
 const Education = () => (
     <Sheet id="education">
         <SheetEyebrow sheet="06" name="Education" withRule meta={`0${education.length} credentials`} />
 
-        <div className="border-[3px] border-ink bg-panel px-5 sm:px-[26px]">
+        <motion.div
+            variants={staggerContainer(0.1)}
+            initial="hidden"
+            whileInView="show"
+            viewport={revealViewport}
+            className="border-[3px] border-ink bg-panel px-5 sm:px-[26px]"
+        >
             {education.map((entry, index) => (
                 <EducationRow key={entry.school} entry={entry} index={index} />
             ))}
-        </div>
+        </motion.div>
     </Sheet>
 );
 

@@ -1,6 +1,8 @@
 import {experiences, timelineNowMarker, timelineSegments, timelineYears} from "../constants";
 import {SheetEyebrow, WatermarkNumber} from "./blueprint/Primitives";
 import Sheet from "./blueprint/Sheet";
+import {motion} from "framer-motion";
+import {fadeUp, revealViewport, staggerContainer} from "../utils/motion";
 
 const segmentStyle = {
     ink: "bg-ink text-white",
@@ -93,7 +95,7 @@ const MobileTimeline = () => (
 );
 
 const RoleBlock = ({experience}) => (
-    <div className="max-w-[800px] mb-12 last:mb-0">
+    <motion.div variants={fadeUp()} className="max-w-[800px] mb-12 last:mb-0">
         <div className="flex items-center gap-5 mb-5 pb-5 border-b-[3px] border-ink">
             <div className="upper w-14 h-14 bg-ink text-canvas flex items-center justify-center text-[14px] sm:text-[15px] font-black flex-shrink-0">
                 {experience.code}
@@ -120,7 +122,7 @@ const RoleBlock = ({experience}) => (
                 </div>
             ))}
         </div>
-    </div>
+    </motion.div>
 );
 
 const Experience = () => (
@@ -133,9 +135,16 @@ const Experience = () => (
         <div className="lg:pl-[60px] flex-1 min-w-0">
             <DesktopTimeline />
             <MobileTimeline />
-            {experiences.map((experience) => (
-                <RoleBlock key={experience.company_name} experience={experience} />
-            ))}
+            <motion.div
+                variants={staggerContainer(0.15)}
+                initial="hidden"
+                whileInView="show"
+                viewport={revealViewport}
+            >
+                {experiences.map((experience) => (
+                    <RoleBlock key={experience.company_name} experience={experience} />
+                ))}
+            </motion.div>
         </div>
     </Sheet>
 );
