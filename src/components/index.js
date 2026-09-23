@@ -10,6 +10,7 @@ import Projects from "./Projects";
 import Publications from "./Publications";
 import Skills from "./Skills";
 import Volunteer from "./Volunteer";
+import Writing from "./Writing";
 
 export {
     About,
@@ -24,4 +25,5 @@ export {
     Publications,
     Skills,
     Volunteer,
+    Writing,
 };

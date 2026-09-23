@@ -85,6 +85,19 @@ export const IeeeStamp = ({size = 78, className = ""}) => (
     </svg>
 );
 
+// Folded-corner document mark for blog/article entries (Writing section) —
+// deliberately plainer than IeeeStamp's circular peer-review stamp, since
+// these are self-published posts rather than a refereed publication.
+export const ArticleMark = ({size = 56, className = ""}) => (
+    <svg aria-hidden="true" width={size} height={size} viewBox="0 0 56 56" className={className}>
+        <path d="M12 4 H36 L44 12 V52 H12 Z" fill="none" stroke="currentColor" strokeWidth="2.5" />
+        <path d="M36 4 V12 H44" fill="none" stroke="currentColor" strokeWidth="2.5" />
+        <line x1="18" y1="24" x2="38" y2="24" stroke="currentColor" strokeWidth="2" />
+        <line x1="18" y1="32" x2="38" y2="32" stroke="currentColor" strokeWidth="2" />
+        <line x1="18" y1="40" x2="30" y2="40" stroke="currentColor" strokeWidth="2" />
+    </svg>
+);
+
 export const MailIcon = ({size = 26}) => (
     <svg aria-hidden="true" width={size} height={size} viewBox="0 0 24 24" className="flex-shrink-0">
         <rect x="2" y="5" width="20" height="14" fill="none" stroke="#101010" strokeWidth="2" />

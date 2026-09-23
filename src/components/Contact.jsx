@@ -72,7 +72,7 @@ const Contact = () => {
         <Sheet id="contact" noBorder grow>
             <RegistrationCorners Icon={CornerMark} />
 
-            <SheetEyebrow sheet="09" name="Contact" withRule meta="Melbourne, AU · SWE / AI roles" />
+            <SheetEyebrow sheet="10" name="Contact" withRule meta="Melbourne, AU · SWE / AI roles" />
 
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-[60px] items-start">
                 <div className="flex-1 min-w-0 w-full">

@@ -11,6 +11,7 @@ import {
     Publications,
     Skills,
     Volunteer,
+    Writing,
 } from "./components";
 
 // Desktop layout groups sections into viewport-height "folds": each fold
@@ -37,6 +38,7 @@ const App = () => {
                 <Education />
                 <Volunteer />
                 <Publications />
+                <Writing />
             </div>
             <div className="lg:min-h-screen lg:flex lg:flex-col">
                 <Contact />

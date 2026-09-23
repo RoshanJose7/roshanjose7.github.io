@@ -1,6 +1,6 @@
 // Sheet numbers drive the "NN / Section" eyebrow label and the footer's
 // "Sheet NN of TOTAL" counter throughout the Structural/Blueprint design.
-export const SHEET_TOTAL = 9;
+export const SHEET_TOTAL = 10;
 
 export const navLinks = [
     {id: "about", title: "About", sheet: "02"},
@@ -10,7 +10,8 @@ export const navLinks = [
     {id: "education", title: "Education", sheet: "06"},
     {id: "volunteer", title: "Volunteer", sheet: "07"},
     {id: "publications", title: "Publications", sheet: "08"},
-    {id: "contact", title: "Contact", sheet: "09"},
+    {id: "writing", title: "Writing", sheet: "09"},
+    {id: "contact", title: "Contact", sheet: "10"},
 ];
 
 export const hero = {
@@ -200,6 +201,30 @@ export const publications = [
         date: "May 2023",
         note: "See StreamIt project.",
         link: "https://github.com/RoshanJose7/streamit-app",
+    },
+];
+
+export const writing = [
+    {
+        title: "My $50 Homelab: Pi-hole, Immich, Jellyfin, and an AI Agent That Runs It All",
+        venue: "Medium",
+        date: "Sep 2026",
+        note: "Turning a $50 eBay mini PC into a home server — Pi-hole, Immich, Jellyfin and Nextcloud on 8GB RAM, plus a self-hosted AI agent for day-to-day admin over Telegram.",
+        link: "https://medium.com/@sroshanjose7/my-50-homelab-pi-hole-immich-jellyfin-and-an-ai-agent-that-runs-it-all-329548ba52c7",
+    },
+    {
+        title: "From Bits to Brilliance: Decoding System Design with Dealberg Tech",
+        venue: "Medium — Dealberg Tech",
+        date: "Jul 2024",
+        note: "System design fundamentals, and how DealBerg's architecture evolved from a single Lambda + Amplify setup to a Redis-cached Gatsby stack, with a microservices roadmap on NestJS and Postgres.",
+        link: "https://medium.com/@dealbergtech/from-bits-to-brilliance-decoding-system-design-with-dealberg-tech-b44c42c1aaa5",
+    },
+    {
+        title: "Byte-Sized Chronicles at Dealberg Tech",
+        venue: "Medium — Dealberg Tech",
+        date: "Jun 2024",
+        note: "Introducing the DealBerg tech team, our daily workflow, and a lazy-loading + server-scaling fix that cut page load times in half.",
+        link: "https://medium.com/@dealbergtech/byte-sized-chronicles-at-dealberg-tech-1e75dbdcc532",
     },
 ];
 
