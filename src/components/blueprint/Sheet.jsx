@@ -29,7 +29,7 @@ const Sheet = ({id, className = "", noBorder = false, fullHeight = false, grow =
     >
         <motion.div
             className={className}
-            variants={fadeUp()}
+            variants={fadeUp(0.15)}
             initial="hidden"
             whileInView="show"
             viewport={revealViewport}

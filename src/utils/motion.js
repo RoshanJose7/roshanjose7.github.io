@@ -5,8 +5,11 @@
 //     list items) should reveal in sequence instead of all at once — pair
 //     it with `fadeUp` on each child; children with no own `initial`/
 //     `animate` inherit the "hidden"/"show" states from the parent.
-// `revealViewport` is the shared scroll-trigger config: fire once, slightly
-// before the element is fully on screen so the reveal times with scrolling.
+// `revealViewport` is the shared scroll-trigger config. `amount: 0.4` (up
+// from 0.2) plus a shrunk bottom margin mean a section needs real scroll
+// distance behind it before it counts as "in view" — otherwise a section
+// sitting just past a fold boundary could already satisfy a low threshold
+// on initial page load, before the user has scrolled at all.
 
 export const fadeUp = (delay = 0, distance = 24) => ({
     hidden: {opacity: 0, y: distance},
@@ -24,4 +27,4 @@ export const staggerContainer = (staggerChildren = 0.08, delayChildren = 0) => (
     },
 });
 
-export const revealViewport = {once: true, amount: 0.2};
+export const revealViewport = {once: true, amount: 0.4, margin: "0px 0px -15% 0px"};

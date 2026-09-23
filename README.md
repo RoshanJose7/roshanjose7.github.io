@@ -1,7 +1,5 @@
 # Roshan Jose — Portfolio
 
-[Live site](https://roshanjose7.github.io/)
-
 A single-page portfolio built around a "Structural/Blueprint" design system —
 numbered sheets, registration marks, and drafting-sheet motifs styling each
 section like a technical drawing.
