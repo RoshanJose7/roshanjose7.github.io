@@ -1,28 +1,49 @@
-import {BrowserRouter} from "react-router-dom";
+import {
+    About,
+    Contact,
+    Education,
+    Experience,
+    Footer,
+    Hero,
+    Metrics,
+    Navbar,
+    Projects,
+    Publications,
+    Skills,
+    Volunteer,
+} from "./components";
 
-import {About, Contact, Experience, Hero, Navbar, StarsCanvas, Tech, Works} from "./components";
-
+// Desktop layout groups sections into viewport-height "folds": each fold
+// wrapper is `lg:min-h-screen lg:flex lg:flex-col[ lg:justify-center]` so
+// its sections stack and center as a block when shorter than the
+// viewport, and grow past it uncapped when their content is taller.
+// About and Experience are each a fold on their own (via Sheet's
+// `fullHeight` prop) since they naturally run close to a full viewport.
 const App = () => {
     return (
-        <BrowserRouter>
-            <div className='relative z-0 bg-primary'>
-                <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
-                    <Navbar/>
-                    <Hero/>
-                </div>
-
-                <About/>
-                <Experience/>
-                <Tech/>
-                <Works/>
-
-                <div className='relative z-0'>
-                    <Contact/>
-                    <StarsCanvas/>
-                </div>
+        <div className="paper relative min-h-screen w-full border-[3px] border-ink box-border text-ink">
+            <div className="lg:min-h-screen lg:flex lg:flex-col">
+                <Navbar />
+                <Hero />
+                <Metrics />
             </div>
-        </BrowserRouter>
+            <About />
+            <Experience />
+            <div className="lg:min-h-screen lg:flex lg:flex-col lg:justify-center">
+                <Projects />
+                <Skills />
+            </div>
+            <div className="lg:min-h-screen lg:flex lg:flex-col lg:justify-center">
+                <Education />
+                <Volunteer />
+                <Publications />
+            </div>
+            <div className="lg:min-h-screen lg:flex lg:flex-col">
+                <Contact />
+                <Footer />
+            </div>
+        </div>
     );
-}
+};
 
 export default App;

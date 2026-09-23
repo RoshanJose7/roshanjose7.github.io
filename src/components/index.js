@@ -1,25 +1,27 @@
-import Hero from "./Hero";
-import Navbar from "./Navbar";
 import About from "./About";
-import Tech from "./Tech";
-import Experience from "./Experience";
-import Works from "./Works";
 import Contact from "./Contact";
-import CanvasLoader from "./Loader";
-import {BallCanvas, ComputersCanvas, EarthCanvas, StarsCanvas} from './canvas';
-
+import Education from "./Education";
+import Experience from "./Experience";
+import Footer from "./Footer";
+import Hero from "./Hero";
+import Metrics from "./Metrics";
+import Navbar from "./Navbar";
+import Projects from "./Projects";
+import Publications from "./Publications";
+import Skills from "./Skills";
+import Volunteer from "./Volunteer";
 
 export {
-    Hero,
-    Navbar,
     About,
-    Tech,
-    Experience,
-    Works,
     Contact,
-    CanvasLoader,
-    EarthCanvas,
-    BallCanvas,
-    ComputersCanvas,
-    StarsCanvas
+    Education,
+    Experience,
+    Footer,
+    Hero,
+    Metrics,
+    Navbar,
+    Projects,
+    Publications,
+    Skills,
+    Volunteer,
 };
