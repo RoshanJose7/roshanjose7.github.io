@@ -1,23 +1,27 @@
-import Hero from "./Hero";
-import Navbar from "./Navbar";
 import About from "./About";
-import Experience from "./Experience";
-import Projects from "./Projects";
-import Skills from "./Skills";
-import Education from "./Education";
-import Volunteer from "./Volunteer";
-import Publications from "./Publications";
 import Contact from "./Contact";
+import Education from "./Education";
+import Experience from "./Experience";
+import Footer from "./Footer";
+import Hero from "./Hero";
+import Metrics from "./Metrics";
+import Navbar from "./Navbar";
+import Projects from "./Projects";
+import Publications from "./Publications";
+import Skills from "./Skills";
+import Volunteer from "./Volunteer";
 
 export {
-    Hero,
-    Navbar,
     About,
-    Experience,
-    Projects,
-    Skills,
-    Education,
-    Volunteer,
-    Publications,
     Contact,
+    Education,
+    Experience,
+    Footer,
+    Hero,
+    Metrics,
+    Navbar,
+    Projects,
+    Publications,
+    Skills,
+    Volunteer,
 };

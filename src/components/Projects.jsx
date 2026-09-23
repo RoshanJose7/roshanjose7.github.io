@@ -1,104 +1,108 @@
-import {motion} from "framer-motion";
+import {projects, projectsInProgress} from "../constants";
+import {AvailabilityIcon, IeeeStamp} from "./blueprint/Icons";
+import {projectFigures} from "./blueprint/Diagrams";
+import {SheetEyebrow} from "./blueprint/Primitives";
+import Sheet from "./blueprint/Sheet";
 
-import {styles} from "../styles";
-import {github, website} from "../assets";
-import {SectionWrapper} from "../hoc";
-import {projects} from "../constants";
-import {fadeIn, textVariant} from "../utils/motion";
-
-const ProjectCard = ({
-                          index,
-                          title,
-                          description,
-                          tags,
-                          image,
-                          project_link,
-                          source_code_link,
-                          status,
-                          demoNote,
-                      }) => {
+const ProjectCard = ({project, figureNumber}) => {
+    const Figure = projectFigures[project.figure];
     return (
-        <motion.div
-            variants={fadeIn("up", "spring", index * 0.5, 0.75)}
-            className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full hover:-translate-y-1 transition-transform'
-        >
-            {image && (
-                <div className='relative w-full h-[230px]'>
-                    <img
-                        src={image}
-                        alt={`${title} preview`}
-                        className='w-full h-full object-cover rounded-2xl'
+        <article className="border-b-[3px] border-r-[3px] border-ink flex flex-col bg-panel">
+            <div className="fine h-[150px] box-border p-3 border-b-[3px] border-ink relative">
+                <div className="upper absolute top-2 left-2.5 text-[10px] font-bold">
+                    Fig. {figureNumber}
+                </div>
+                {Figure && <Figure />}
+            </div>
+
+            <div className="p-6 sm:p-[26px] flex flex-col flex-grow relative">
+                {project.ieeeStamp && (
+                    <IeeeStamp
+                        size={66}
+                        className="absolute right-4 sm:right-[18px] -top-[34px] sm:-top-10 rotate-[-10deg] text-accent"
                     />
+                )}
 
-                    {project_link && (
-                        <div className='absolute inset-0 flex justify-end m-3'>
-                            <div
-                                onClick={() => window.open(project_link, "_blank")}
-                                className='bg-gradient-to-r from-rose-100 to-teal-100 w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
-                            >
-                                <img
-                                    src={website}
-                                    alt='live demo'
-                                    className='w-1/2 h-1/2 object-contain'
-                                />
-                            </div>
-                        </div>
-                    )}
-
-                    {source_code_link && (
-                        <div className='absolute inset-x-12 inset-y-0 flex justify-end m-3'>
-                            <div
-                                onClick={() => window.open(source_code_link, "_blank")}
-                                className='bg-gradient-to-r from-gray-700 via-gray-900 to-black w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
-                            >
-                                <img
-                                    src={github}
-                                    alt='source code'
-                                    className='w-1/2 h-1/2 object-contain'
-                                />
-                            </div>
-                        </div>
+                <div className="text-[20px] sm:text-[22px] font-black mb-2.5">
+                    {project.name.toUpperCase()}
+                    {project.badge && (
+                        <span className="upper text-[10px] sm:text-[11px] font-bold border-2 border-ink px-1.5 py-0.5 align-middle ml-1.5">
+                            {project.badge}
+                        </span>
                     )}
                 </div>
-            )}
+                <p className="m-0 text-[14px] leading-[1.5] flex-grow">{project.description}</p>
 
-            <div className='mt-5'>
-                <h3 className='text-white font-bold text-[24px]'>{title}</h3>
-                <p className='mt-2 text-secondary text-[14px]'>{description}</p>
-                {status && (
-                    <p className='mt-2 text-[13px] text-[#915EFF] italic'>{status}</p>
-                )}
-                {demoNote && !project_link && (
-                    <p className='mt-2 text-[13px] text-[#915EFF] italic'>{demoNote}</p>
-                )}
-            </div>
+                <div className="upper flex border-2 border-ink mt-5 text-[10px] sm:text-[11px] font-bold">
+                    <div className="flex-1 flex items-center justify-between px-2.5 sm:px-2.5 py-[7px] border-r-2 border-ink">
+                        {project.repo.label}
+                        <AvailabilityIcon state={project.repo.state} />
+                    </div>
+                    <div className="flex-1 flex items-center justify-between px-2.5 py-[7px]">
+                        {project.demo.label}
+                        <AvailabilityIcon state={project.demo.state} />
+                    </div>
+                </div>
 
-            <div className='mt-4 flex flex-wrap gap-2'>
-                {tags.map((tag) => (
-                    <p key={`${title}-${tag}`} className='text-[14px] text-secondary'>
-                        #{tag}
-                    </p>
-                ))}
+                <div className="flex gap-4 mt-4 flex-wrap">
+                    {project.linkLabel && project.project_link && (
+                        <a href={project.project_link} target="_blank" rel="noopener noreferrer" className="upper text-[13px] font-bold">
+                            {project.linkLabel}
+                        </a>
+                    )}
+                    {project.source_code_link && (
+                        <a href={project.source_code_link} target="_blank" rel="noopener noreferrer" className="upper text-[13px] font-bold">
+                            [ Repo ]
+                        </a>
+                    )}
+                    {project.project_link && !project.linkLabel && (
+                        <a href={project.project_link} target="_blank" rel="noopener noreferrer" className="upper text-[13px] font-bold">
+                            [ Demo ]
+                        </a>
+                    )}
+                </div>
             </div>
-        </motion.div>
+        </article>
     );
 };
 
-const Projects = () => {
-    return (
-        <>
-            <motion.div variants={textVariant()}>
-                <p className={styles.sectionSubText}>My work</p>
-                <h2 className={styles.sectionHeadText}>Projects.</h2>
-            </motion.div>
+const Projects = () => (
+    <Sheet id="projects">
+        <SheetEyebrow sheet="04" name="Projects" withRule meta={`0${projects.length} live · 0${projectsInProgress.length} in progress`} />
 
-            <div className='mt-20 flex flex-wrap gap-7'>
-                {projects.map((project, index) => (
-                    <ProjectCard key={`project-${project.name}`} index={index} {...project} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t-[3px] border-l-[3px] border-ink">
+            {projects.map((project, index) => (
+                <ProjectCard key={project.name} project={project} figureNumber={`04.${index + 1}`} />
+            ))}
+        </div>
+
+        {projectsInProgress.length > 0 && (
+            <div className="mt-8">
+                <div className="upper text-[11px] sm:text-[12px] font-bold mb-3.5">
+                    System state — not part of live grid
+                </div>
+                {projectsInProgress.map((project) => (
+                    <div
+                        key={project.name}
+                        className="hatch border-[3px] border-ink px-5 sm:px-[26px] py-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3"
+                    >
+                        <div className="bg-panel px-3.5 py-2 border border-ink flex items-center gap-3 w-fit">
+                            <svg aria-hidden="true" width="16" height="18" viewBox="0 0 16 18">
+                                <rect x="1.5" y="8" width="13" height="9" fill="none" stroke="#101010" strokeWidth="2" />
+                                <path d="M4.5 8 V5 a3.5 3.5 0 0 1 7 0 V8" fill="none" stroke="#101010" strokeWidth="2" />
+                            </svg>
+                            <span className="text-[16px] sm:text-[17px] font-black">
+                                {project.name.toUpperCase()}
+                            </span>
+                        </div>
+                        <span className="upper text-[11px] sm:text-[12px] font-bold bg-flag text-white px-3 py-1.5 w-fit">
+                            {project.status}
+                        </span>
+                    </div>
                 ))}
             </div>
-        </>
-    );
-};
+        )}
+    </Sheet>
+);
 
-export default SectionWrapper(Projects, "projects");
+export default Projects;

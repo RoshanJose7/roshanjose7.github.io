@@ -1,39 +1,35 @@
-import {motion} from "framer-motion";
-
-import {styles} from "../styles";
 import {volunteer} from "../constants";
-import {SectionWrapper} from "../hoc";
-import {fadeIn, textVariant} from "../utils/motion";
+import {SheetEyebrow} from "./blueprint/Primitives";
+import Sheet from "./blueprint/Sheet";
 
-const VolunteerCard = ({index, title, organization, date, description}) => (
-    <motion.div
-        variants={fadeIn("up", "spring", index * 0.2, 0.75)}
-        className='bg-tertiary rounded-2xl p-6'
-    >
-        <div className='flex flex-wrap justify-between items-start gap-2'>
-            <h3 className='text-white font-bold text-[20px]'>{title}</h3>
-            <span className='text-secondary text-[14px]'>{date}</span>
+const VolunteerRow = ({entry, index}) => (
+    <div className={`flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-6 py-5 ${
+        index === volunteer.length - 1 ? "" : "border-b border-ink"
+    }`}>
+        <div className="text-[15px] sm:text-[16px] font-black text-accent flex-shrink-0 sm:w-8">
+            {String(index + 1).padStart(2, "0")}
         </div>
-        <p className='text-[#915EFF] font-medium text-[16px] mt-1'>{organization}</p>
-        <p className='text-secondary text-[14px] mt-3 leading-[24px]'>{description}</p>
-    </motion.div>
+        <div className="flex-1 min-w-0">
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <div className="text-[18px] sm:text-[20px] font-black">{entry.title}</div>
+                <div className="upper text-[11px] sm:text-[12px] font-bold">{entry.date}</div>
+            </div>
+            <div className="text-[15px] sm:text-[16px] font-semibold mt-1">{entry.organization}</div>
+            <div className="text-[14px] leading-[1.5] mt-2">{entry.description}</div>
+        </div>
+    </div>
 );
 
-const Volunteer = () => {
-    return (
-        <>
-            <motion.div variants={textVariant()}>
-                <p className={styles.sectionSubText}>Giving back</p>
-                <h2 className={styles.sectionHeadText}>Volunteer / Leadership.</h2>
-            </motion.div>
+const Volunteer = () => (
+    <Sheet id="volunteer">
+        <SheetEyebrow sheet="07" name="Volunteer" withRule meta={`0${volunteer.length} role`} />
 
-            <div className='mt-14 flex flex-col gap-6'>
-                {volunteer.map((entry, index) => (
-                    <VolunteerCard key={entry.title} index={index} {...entry} />
-                ))}
-            </div>
-        </>
-    );
-};
+        <div className="border-[3px] border-ink bg-panel px-5 sm:px-[26px]">
+            {volunteer.map((entry, index) => (
+                <VolunteerRow key={entry.title} entry={entry} index={index} />
+            ))}
+        </div>
+    </Sheet>
+);
 
-export default SectionWrapper(Volunteer, "volunteer");
+export default Volunteer;
