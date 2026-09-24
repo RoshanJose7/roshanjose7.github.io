@@ -173,7 +173,7 @@ export const education = [
     {
         school: "RMIT University",
         degree: "Master's, Information Technology",
-        date: "Jul 2025 — Nov 2027",
+        date: "Jul 2025 — Jun 2027",
         detail: "Relevant coursework: Database Concepts, Data Structures, Advanced Algorithms, Artificial Intelligence.",
     },
     {
